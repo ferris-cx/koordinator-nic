@@ -186,6 +186,7 @@ func (s *statesInformer) buildGPUDevice() []schedulingv1alpha1.DeviceInfo {
 		deviceInfos = append(deviceInfos, schedulingv1alpha1.DeviceInfo{
 			UUID:   gpu.UUID,
 			Minor:  &gpu.Minor,
+			Labels: map[string]string{"minor": string(gpu.Minor)},
 			Type:   schedulingv1alpha1.GPU,
 			Health: health,
 			Resources: map[corev1.ResourceName]resource.Quantity{
